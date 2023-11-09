@@ -23,6 +23,7 @@ Note: Khi thực hiện catboost có một số ý sau:
 + Chú ý rằng kích thước tensor của mọi input phải giống nhau (đến từ việc tính stft) => colate function
 + Không được thực hiện những gì quá phức tạp trong dataloader(ví dụ như VAD, tính stft...) vì quá lâu => Thay vào đó hãy tính sẵn embedding, lưu file pickle, khi cần dùng gọi trực tiếp ra ở trong dataloader
 + Lo lắng về thời gian chạy của stft(Hiện tại có khoảng có 300k file wav, mỗi file tính stft mất ít nhất 1 giây, dùng vòng for nên khả năng dùng GPU cũng ko thể tính toán song song)
++ Lo lắng tiếp :))) Tính thử với 1000 file thì embedding của 1000 files này vào khoảng 300MB, mà tập training của mình có 300k files =>>> Bao nhiêu bộ nhớ để lưu đây, trong khi kaggle output tối đa 20GB
 
 
 
